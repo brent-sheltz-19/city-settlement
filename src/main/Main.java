@@ -1,3 +1,4 @@
+package main;
 /**
  * 
  */
@@ -7,7 +8,6 @@ import java.util.Random;
 import java.util.Timer;
 
 import Gui.*;
-import Gui.Panel;
 import gamecode.*;
 /**
  * @author brent sheltz
@@ -17,13 +17,12 @@ public class Main
 {	
 	Timer timer= new Timer();
 	gameBuilding[][] map;
-	int money;
+	public static int money=0;
 	private Main()
 	{
 		
 		
-		timer.schedule(new TaxTimmer(),0,1000);
-		money=0;
+		timer.schedule(new TaxTimmer(map),0,10000);
 		map= new gameBuilding[100][100];
 		Random ranx = new Random();
 		Random rany = new Random();
@@ -60,6 +59,9 @@ public class Main
 					
 					gui.panel.clicked=false;
 				}
+				
+				
+			
 		}
 		close();
 	}

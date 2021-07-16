@@ -33,9 +33,9 @@ public class Gui {
 		panel = new Panel();
 		panel.setMap(map);
 		panel.setBackground(Color.black);
-		panel.setPreferredSize(new Dimension(width, height-145));
+		panel.setPreferredSize(new Dimension(width, height-100));
 		frame.add(panel,BorderLayout.CENTER);
-		for(int i = 0 ; i < 2;i++)
+		for(int i = 0 ; i < buttonlistNames.length;i++)
 		{
 			buttonlist[i] = new JButton(buttonlistNames[i]);
 			buttonlist[i].setPreferredSize(new Dimension(width/buttonlist.length,100));
