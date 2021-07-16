@@ -15,6 +15,7 @@ public class Commercial extends gameBuilding {
 	 */
 	public Commercial() {
 		// TODO Auto-generated constructor stub
+		super.setZoneType("Commercial");
 	}
 
 	@Override
