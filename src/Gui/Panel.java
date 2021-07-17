@@ -118,7 +118,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 					g.setColor(Color.darkGray);
 					
 				}
-				offsetx++;
+				setOffsetx(getOffsetx() + 1);
 				
 			}
 			offsety++;
@@ -196,6 +196,22 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 		// TODO Auto-generated method stub
 		curindexx=e.getX();
 		curindexy=e.getY();
+	}
+
+	public int getOffsetx() {
+		return offsetx;
+	}
+
+	public void setOffsetx(int offsetx) {
+		this.offsetx = offsetx;
+	}
+
+	public Dimension getScreenSize() {
+		return ScreenSize;
+	}
+
+	public void setScreenSize(Dimension screenSize) {
+		ScreenSize = screenSize;
 	}
 	
 }
