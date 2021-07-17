@@ -15,15 +15,14 @@ public class Gui {
 	public int height= 720;
 	public JFrame frame;
 	public Panel panel;
-	public JButton[] buttonlist = new JButton[5];
-	private static String[] buttonlistNames = {"Demolish","Residential"};
+	public JButton construction;
 	public gameBuilding[][] map;
 	public Gui(gameBuilding[][] map)
 	{
 		this.map=map;
 		
 		frame = new JFrame(" game ");
-		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		Toolkit K = frame.getToolkit();
 		width=K.getScreenSize().width;
 		height=K.getScreenSize().height;
@@ -35,21 +34,24 @@ public class Gui {
 		panel.setBackground(Color.black);
 		panel.setPreferredSize(new Dimension(width, height-100));
 		frame.add(panel,BorderLayout.CENTER);
-		for(int i = 0 ; i < buttonlistNames.length;i++)
-		{
-			buttonlist[i] = new JButton(buttonlistNames[i]);
-			buttonlist[i].setPreferredSize(new Dimension(width/buttonlist.length,100));
-			frame.add(buttonlist[i],BorderLayout.SOUTH);
-		}
+		
+		construction = new JButton("construction");
+		construction.setPreferredSize(new Dimension(width,100));
+		frame.add(construction,BorderLayout.SOUTH);
+		
 		frame.pack();
 		frame.setVisible(true);
 		panel.paint(panel.getGraphics());
 
 	}
+	private void switchToConstructionMenu()
+	{
+		
+	}
 	
 	public boolean isActive() {
 		// TODO Auto-generated method stub
-		return frame.isActive();
+		return frame.isEnabled();
 	}
 
 	/**
@@ -109,34 +111,6 @@ public class Gui {
 	}
 
 	/**
-	 * @return the buttonlist
-	 */
-	public JButton[] getButtonlist() {
-		return buttonlist;
-	}
-
-	/**
-	 * @param buttonlist the buttonlist to set
-	 */
-	public void setButtonlist(JButton[] buttonlist) {
-		this.buttonlist = buttonlist;
-	}
-
-	/**
-	 * @return the buttonlistNames
-	 */
-	public static String[] getButtonlistNames() {
-		return buttonlistNames;
-	}
-
-	/**
-	 * @param buttonlistNames the buttonlistNames to set
-	 */
-	public static void setButtonlistNames(String[] buttonlistNames) {
-		Gui.buttonlistNames = buttonlistNames;
-	}
-
-	/**
 	 * @return the map
 	 */
 	public gameBuilding[][] getMap() {
@@ -149,6 +123,9 @@ public class Gui {
 	public void setMap(gameBuilding[][] map) {
 		this.map = map;
 	}
-	
+	public static void Terminate(Gui guitoclose)
+	{
+		guitoclose=null;
+	}
 
 }

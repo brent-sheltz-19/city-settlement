@@ -11,17 +11,18 @@ public class TaxTimmer extends TimerTask {
 
 	@Override
 	public void run() {
+
 		if (map!=null) {
 			// TODO Auto-generated method stub
 			for (gameBuilding[] y : map) {
 				for (gameBuilding x : y) {
+					if(x!=null)
+					{
 					Main.money += x.calcTax();
+					}
 				}
 			} 
 		}
-
-		System.out.println(Main.money);
-		
 	}
 
 }

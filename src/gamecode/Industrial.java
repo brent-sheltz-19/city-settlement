@@ -4,7 +4,8 @@ public class Industrial extends gameBuilding{
 
 	public Industrial() {
 		// TODO Auto-generated constructor stub
-	super.ZoneType="Industrial";
+		super();
+		super.ZoneType="Industrial";
 	}
 
 	@Override

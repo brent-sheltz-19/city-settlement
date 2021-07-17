@@ -6,6 +6,7 @@ public class Residential extends gameBuilding {
 	public Residential() {
 		// TODO Auto-generated constructor stub
 		super.setZoneType("Residential");
+		level=1;
 	}
 
 	@Override

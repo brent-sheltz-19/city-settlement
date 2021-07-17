@@ -24,8 +24,8 @@ import gamecode.gameBuilding;
  *
  */
 public class Panel extends JPanel implements MouseListener, MouseMotionListener{
-	public  Integer clickedx,clickedy=null;
-	public  boolean clicked =false;
+	public static Integer clickedx,clickedy=null;
+	public static boolean clicked =false;
 	public  Integer curindexx,curindexy=null;
 	
 	public gameBuilding[][] map;
@@ -47,6 +47,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 	public Panel(LayoutManager layout) {
 		super(layout);
 		// TODO Auto-generated constructor stub
+		addMouseListener(this);
 	}
 
 	/**
@@ -55,6 +56,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 	public Panel(boolean isDoubleBuffered) {
 		super(isDoubleBuffered);
 		// TODO Auto-generated constructor stub
+		addMouseListener(this);
 	}
 
 	/**
@@ -104,9 +106,11 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 				}
 				else if(map[y][x].getZoneType().equals("Industrial"))
 				{
-					g.setColor(Color.YELLOW);
-					g.fillRect(pixelchunk.x, pixelchunk.y, pixelchunk.width, pixelchunk.height-30);
-					g.fillRect(pixelchunk.width-10, pixelchunk.y, 10, pixelchunk.height);
+					g.setColor(Color.decode("0x0a4222"));
+					g.fillRect(pixelchunk.x, pixelchunk.y, pixelchunk.width-10, pixelchunk.height-10);
+					g.fillRect(pixelchunk.x+pixelchunk.width-10, pixelchunk.y, 10,pixelchunk.height-3);
+					g.setColor(Color.gray);
+					g.fillRect(pixelchunk.x+5, y,2, 2);
 					
 				}
 				else if(map[y][x].getZoneType().equals("Utility"))
@@ -154,7 +158,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 		clicked=true;
 		clickedx=(convertPixel(e.getX()));
 		clickedy=(convertPixel(e.getY()));
-		
+		System.out.println(clicked);
 	}
 
 	@Override
