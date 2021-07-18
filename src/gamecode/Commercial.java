@@ -22,7 +22,7 @@ public class Commercial extends gameBuilding {
 	@Override
 	public int calcTax() {
 		// TODO Auto-generated method stub
-		return (level*5);
+		return (level*10);
 	}
 
 }

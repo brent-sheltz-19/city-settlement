@@ -80,7 +80,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 			for(int x = 0 ; x <map[y].length;x++)
 			{
 				Rectangle pixelchunk = new Rectangle(new Point(convertIndex(x),convertIndex(y)),new Dimension(20,20));
-				if(map[y][x] == null )
+				if(map[y][x].getZoneType().equals("Empty") )
 				{
 					continue;
 				}
@@ -107,10 +107,10 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 				else if(map[y][x].getZoneType().equals("Industrial"))
 				{
 					g.setColor(Color.decode("0x0a4222"));
-					g.fillRect(pixelchunk.x, pixelchunk.y, pixelchunk.width-10, pixelchunk.height-10);
+					g.fillRect(pixelchunk.x, pixelchunk.y+10, pixelchunk.width, pixelchunk.height-10);
 					g.fillRect(pixelchunk.x+pixelchunk.width-10, pixelchunk.y, 10,pixelchunk.height-3);
 					g.setColor(Color.gray);
-					g.fillRect(pixelchunk.x+5, y,2, 2);
+					g.fillRect(pixelchunk.x+pixelchunk.width-10, pixelchunk.y,10, 3);
 					
 				}
 				else if(map[y][x].getZoneType().equals("Utility"))
@@ -118,13 +118,65 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 					g.setColor(Color.darkGray);
 					
 				}
-				setOffsetx(getOffsetx() + 1);
+				else if(map[y][x].getZoneType().equals("Road"))
+				{
+					g.setColor((Color.BLACK));
+					g.fillRect(pixelchunk.x, pixelchunk.y, pixelchunk.width, pixelchunk.height);
+					
+						if(y==0)
+						{
+							if(x==0)
+							{
+								g.setColor((Color.yellow));
+								if(map[y][x+1].getZoneType().equals("Road")&&map[y+1][x].getZoneType().equals("Road"))
+								{
+									//horizontal bar
+									g.fillRect(pixelchunk.x,pixelchunk.y+ pixelchunk.height/2, (pixelchunk.width/2), 6 );
+									//verticle bar
+									g.fillRect(pixelchunk.x+(pixelchunk.width/2), pixelchunk.y+(pixelchunk.height/2), 6, pixelchunk.height );
+									
+								}
+								else if(map[y+1][x].getZoneType().equals("Road") )
+								{
+									//verticle bar
+									g.fillRect(pixelchunk.x+(pixelchunk.width/2), pixelchunk.y, 5, pixelchunk.height );
+								
+								}
+								else if(map[y][x+1].getZoneType().equals("Road"))
+								{
+									//default 
+									g.fillRect(pixelchunk.x+pixelchunk.width/2, pixelchunk.height/2-2, pixelchunk.width/2, 5 );
+											
+								}
+							}
+							
+							
+						}
+						
+					}
+									//g.setColor((Color.yellow));
+									//g.fillRect(pixelchunk.x, pixelchunk.height/2-2, pixelchunk.width, 5 );
+								
+					
+						//g.setColor((Color.BLACK));
+						//g.fillRect(pixelchunk.x, pixelchunk.y, pixelchunk.width, pixelchunk.height);
+						//g.setColor((Color.yellow));
+						//g.fillRect(pixelchunk.x/2, pixelchunk.y, 5, pixelchunk.height );
+						
+					}
+				setOffsetx(getOffsetx() + 1);	
 				
-			}
-			offsety++;
-		}
-	
+				}
+					
+						
+						
+				offsety++;				
 	}
+				
+			
+			
+			
+
 
 	/**
 	 * @return the map

@@ -6,13 +6,21 @@ public class Residential extends gameBuilding {
 	public Residential() {
 		// TODO Auto-generated constructor stub
 		super.setZoneType("Residential");
-		level=1;
+		setLevel(1);
 	}
 
 	@Override
 	public int calcTax() {
 		// TODO Auto-generated method stub
-		return 0;
+		return level*5;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
 	}
 
 }
