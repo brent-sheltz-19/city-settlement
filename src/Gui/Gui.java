@@ -2,6 +2,8 @@ package Gui;
 import gamecode.*;
 import javax.swing.*;
 import java.awt.color.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -9,13 +11,14 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
-public class Gui {
+public class Gui implements ActionListener {
 
 	public int width= 1080;
 	public int height= 720;
 	public JFrame frame;
 	public Panel panel;
 	public JButton construction;
+	constructionMenu constructionmenu;
 	public gameBuilding[][] map;
 	public Gui(gameBuilding[][] map)
 	{
@@ -26,7 +29,6 @@ public class Gui {
 		Toolkit K = frame.getToolkit();
 		width=K.getScreenSize().width;
 		height=K.getScreenSize().height;
-		
 		frame.setPreferredSize(new Dimension(width, height));
 		
 		panel = new Panel();
@@ -37,15 +39,21 @@ public class Gui {
 		
 		construction = new JButton("construction");
 		construction.setPreferredSize(new Dimension(width,100));
+		construction.addActionListener(this);
 		frame.add(construction,BorderLayout.SOUTH);
 		
 		frame.pack();
 		frame.setVisible(true);
+		constructionmenu = new constructionMenu();
+		constructionmenu.setVisible(false);
+		
 		panel.paint(panel.getGraphics());
 
 	}
 	private void switchToConstructionMenu()
 	{
+		panel.setVisible(false);
+		constructionmenu.setVisible(true);
 		
 	}
 	
@@ -126,6 +134,14 @@ public class Gui {
 	public static void Terminate(Gui guitoclose)
 	{
 		guitoclose=null;
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==construction)
+		{
+			switchToConstructionMenu();
+		}
 	}
 
 }

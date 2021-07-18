@@ -23,7 +23,14 @@ public class Main
 	private Main()
 	{
 		map= new gameBuilding[100][100];
-		
+		for(int y =0;y<map.length;y++)
+		{
+			for(int x =0;x<map[y].length;x++)
+			{
+				map[y][x]=new Empty();
+			}
+				
+		}
 		timer.schedule(new TaxTimmer(map),0,10000);
 		
 		Random ranx = new Random();
@@ -48,6 +55,22 @@ public class Main
 				map[y][x]=new Industrial();
 			}
 		}
+		map[0][0]=new Road();
+		map[0][1]=new Road();
+//		for(int i= 0 ; i<map[0].length;i++)
+//		{
+//			if(i%2==0)
+//			{
+//			map[0][i]=new Road();
+//			}
+//		}
+//		for(int i= 0 ; i<map[0].length;i++)
+//		{
+//			if(i%2==0)
+//			{
+//			map[0][i]=new Road();
+//			}
+//		}
 		Gui gui = new Gui(map);
 		//gui.paintComponents(gui.getGraphics());
 		for (gameBuilding[] y : map) {
