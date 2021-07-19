@@ -144,12 +144,59 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 								}
 								else if(map[y][x+1].getZoneType().equals("Road"))
 								{
-									//default 
+									//horizontal
 									g.fillRect(pixelchunk.x+pixelchunk.width/2, pixelchunk.height/2-2, pixelchunk.width/2, 5 );
 											
 								}
 							}
-							
+							else if(x==map[y].length)
+							{
+								g.setColor((Color.yellow));
+								if(map[y][x-1].getZoneType().equals("Road")&&map[y+1][x].getZoneType().equals("Road"))
+								{
+									//horizontal bar
+									g.fillRect(pixelchunk.x,pixelchunk.y+ pixelchunk.height/2, (pixelchunk.width/2), 6 );
+									//verticle bar
+									g.fillRect(pixelchunk.x+(pixelchunk.width/2), pixelchunk.y+(pixelchunk.height/2), 6, pixelchunk.height );
+									
+								}
+								else if(map[y+1][x].getZoneType().equals("Road") )
+								{
+									//verticle bar
+									g.fillRect(pixelchunk.x+(pixelchunk.width/2), pixelchunk.y, 5, pixelchunk.height );
+								
+								}
+								else if(map[y][x-1].getZoneType().equals("Road"))
+								{
+									//horizontal
+									g.fillRect(pixelchunk.x+pixelchunk.width/2, pixelchunk.height/2-2, pixelchunk.width/2, 5 );
+											
+								}
+							}
+							else 
+							{
+								g.setColor((Color.yellow));
+								if(map[y][x-1].getZoneType().equals("Road")&&map[y][x+1].getZoneType().equals("Road"))
+								{
+									//horizontal bar
+									g.fillRect(pixelchunk.x,pixelchunk.y+ pixelchunk.height/2, (pixelchunk.width/2), 6 );
+									//verticle bar
+									g.fillRect(pixelchunk.x+(pixelchunk.width/2), pixelchunk.y+(pixelchunk.height/2), 6, pixelchunk.height );
+									
+								}
+								else if(map[y+1][x].getZoneType().equals("Road") )
+								{
+									//verticle bar
+									g.fillRect(pixelchunk.x+(pixelchunk.width/2), pixelchunk.y, 5, pixelchunk.height );
+								
+								}
+								else if(map[y][x-1].getZoneType().equals("Road"))
+								{
+									//horizontal
+									g.fillRect(pixelchunk.x+pixelchunk.width/2, pixelchunk.height/2-2, pixelchunk.width/2, 5 );
+											
+								}
+							}
 							
 						}
 						
