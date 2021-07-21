@@ -11,6 +11,7 @@ import java.awt.Rectangle;
  */
 public class Camera {
 	public Rectangle view;
+	public int x,y;
 	/**
 	 * 
 	 */

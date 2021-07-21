@@ -57,20 +57,15 @@ public class Main
 		}
 		map[0][0]=new Road();
 		map[0][1]=new Road();
-//		for(int i= 0 ; i<map[0].length;i++)
-//		{
-//			if(i%2==0)
-//			{
-//			map[0][i]=new Road();
-//			}
-//		}
-//		for(int i= 0 ; i<map[0].length;i++)
-//		{
-//			if(i%2==0)
-//			{
-//			map[0][i]=new Road();
-//			}
-//		}
+		map[1][0]=new Road();
+
+		
+		for(int i= 0 ; i<map[0].length;i++)
+		{
+			
+			map[0][i]=new Road();
+			
+		}
 		Gui gui = new Gui(map);
 		//gui.paintComponents(gui.getGraphics());
 		for (gameBuilding[] y : map) {
