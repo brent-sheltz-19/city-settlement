@@ -172,14 +172,16 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 		clicked = true;
 		clickedx = (convertPixel(e.getX()));
 		clickedy = (convertPixel(e.getY()));
-		System.out.println(clicked);
+		//System.out.println(clicked);
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
+		
 		if(e.getButton()==MouseEvent.BUTTON2)
 		{
+			System.out.println(e.getX());
 			oldmousex = e.getX();
 			oldmousey= e.getY();
 		}
@@ -206,7 +208,6 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("Mouse dragged");
 		if(e.getButton()==MouseEvent.BUTTON2)
 		{
 			offsetx+=e.getX()-oldmousex;

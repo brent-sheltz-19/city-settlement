@@ -6,7 +6,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.Random;
 import java.util.Timer;
-
+import java.lang.*;
 import Gui.*;
 import Gui.Panel;
 import gamecode.*;
@@ -16,6 +16,7 @@ import gamecode.*;
  */
 public class Main
 {	
+	
 	Timer timer= new Timer();
 	gameBuilding[][] map;
 	public static int money=0;
@@ -99,6 +100,7 @@ public class Main
 	 */
 	public static void main(String[] args) 
 	{
+
 		Main main= new Main();
 
 		// TODO Auto-generated method stub
