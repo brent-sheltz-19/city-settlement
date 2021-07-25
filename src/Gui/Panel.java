@@ -255,11 +255,14 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
 <<<<<<< HEAD
+<<<<<<< HEAD
 		clicked = true;
 		clickedx = (convertPixel(e.getX()));
 		clickedy = (convertPixel(e.getY()));
 		//System.out.println(clicked);
 =======
+=======
+>>>>>>> parent of 10096d0 (7/21)
 		clicked=true;
 		clickedx=(convertPixel(e.getX()));
 		clickedy=(convertPixel(e.getY()));
@@ -271,6 +274,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 		
+<<<<<<< HEAD
 <<<<<<< HEAD
 		if(e.getButton()==MouseEvent.BUTTON2)
 		{
