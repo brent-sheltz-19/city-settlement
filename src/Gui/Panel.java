@@ -280,6 +280,8 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 		}
 =======
 >>>>>>> parent of 10096d0 (7/21)
+=======
+>>>>>>> parent of 10096d0 (7/21)
 	}
 
 	@Override
@@ -304,12 +306,15 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener{
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stub
 <<<<<<< HEAD
+<<<<<<< HEAD
 		if(e.getButton()==MouseEvent.BUTTON2)
 		{
 			offsetx+=e.getX()-oldmousex;
 			offsety+=e.getY()-oldmousey;
 			
 		}
+=======
+>>>>>>> parent of 10096d0 (7/21)
 =======
 >>>>>>> parent of 10096d0 (7/21)
 		
