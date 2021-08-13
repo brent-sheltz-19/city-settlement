@@ -3,6 +3,8 @@ package main;
  * 
  */
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.util.Random;
 import java.util.Timer;
@@ -14,11 +16,13 @@ import gamecode.*;
  * @author brent sheltz
  *
  */
-public class Main
+public class Main 
 {	
 	
 	Timer timer= new Timer();
 	gameBuilding[][] map;
+	Gui gui;
+	KeyListener k;
 	public static int money=0;
 	public static int population=0;
 	private Main()
@@ -56,23 +60,18 @@ public class Main
 				map[y][x]=new Industrial();
 			}
 		}
-		map[0][0]=new Road();
-		map[0][1]=new Road();
-//		for(int i= 0 ; i<map[0].length;i++)
-//		{
-//			if(i%2==0)
-//			{
-//			map[0][i]=new Road();
-//			}
-//		}
-//		for(int i= 0 ; i<map[0].length;i++)
-//		{
-//			if(i%2==0)
-//			{
-//			map[0][i]=new Road();
-//			}
-//		}
-		Gui gui = new Gui(map);
+		//map[0][0]=new Road();
+		//map[0][1]=new Road();
+		for(int i= 0 ; i<map[0].length;i++)
+		{
+	
+			map[5][i]=new Road();
+			map[i][0]=new Road();
+			
+		}
+		gui = new Gui(map);
+		k=new keyInput(gui.panel);
+		gui.panel.setKey(k);			
 		//gui.paintComponents(gui.getGraphics());
 		for (gameBuilding[] y : map) {
 			for (gameBuilding x : y)
@@ -88,34 +87,25 @@ public class Main
 				}
 			}
 			System.out.println();
+			
 		}
 	}
 	public void addToMap(String type,int x,int y)
 	{
 		
 	}
-	
-	
-	
-	
-	
-	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) 
 	{
-
-		Main main= new Main();
-
-		// TODO Auto-generated method stub
-	
 		
+		Main main;
+		main= new Main();
 	}
 	public void close()
 	{
 		timer.cancel();
 		return;
 	}
-
 }

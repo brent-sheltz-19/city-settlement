@@ -11,6 +11,7 @@ public class constructionMenu extends JPanel
 	private static String[] buttonlistNames = {"Demolish","Residential","Comercial","Industrial","Utility"};
 	public constructionMenu()
 	{
+		//int x[buttonlist.length]=
 		for(int i=0;i<buttonlist.length;i++)
 		{
 			buttonlist[i]=new JButton(buttonlistNames[i]);

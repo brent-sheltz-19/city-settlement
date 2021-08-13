@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.color.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,7 +13,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
-public class Gui implements ActionListener {
+public class Gui implements ActionListener{
 
 	public int width= 1080;
 	public int height= 720;
@@ -48,7 +50,6 @@ public class Gui implements ActionListener {
 		constructionmenu.setVisible(false);
 		
 		panel.paint(panel.getGraphics());
-
 	}
 	private void switchToConstructionMenu()
 	{
@@ -143,5 +144,5 @@ public class Gui implements ActionListener {
 			switchToConstructionMenu();
 		}
 	}
-
+	
 }

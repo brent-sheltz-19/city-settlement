@@ -23,13 +23,32 @@ public class Camera {
 	
 	
 	}
+	public void move(int x, int y)
+	{
+		if(x<0)
+		{
+			moveLeft(x);
+		}
+		else if(x>0)
+		{
+			moveRight(x);
+		}
+		if(y<0)
+		{
+			moveUp(y);
+		}
+		else if(y>0)
+		{
+			moveDown(y);
+		}
+	}
 	public void moveLeft()
 	{
 		view.x--;
 	}
 	public void moveLeft(int scroll)
 	{
-		view.x-=scroll;
+		view.x+=scroll;
 	}
 	public void moveRight()
 	{
@@ -47,7 +66,7 @@ public class Camera {
 	}
 	public void moveUp(int scroll)
 	{
-		view.y-=scroll;
+		view.y+=scroll;
 	}
 	public void moveDown()
 	{
