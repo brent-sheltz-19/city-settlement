@@ -27,6 +27,7 @@ import javax.swing.Action;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import gamecode.Residential;
 import gamecode.gameBuilding;
 
 /**
@@ -40,12 +41,14 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 	public static int roadwidth = 5;
 	public static int roadheight = 5;
 	public Camera cam;
+	public String action="";
 	public gameBuilding[][] map;
 	private Dimension ScreenSize;
 	private int offsetx, offsety;
 	private Integer clickedButton;
 	private KeyListener key;
-
+	private gameBuilding temp;
+	private Point temppoint ;
 	public static Point getPoint() {
 		return point;
 	}
@@ -139,9 +142,6 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 		offsety = cam.view.y;
 		addMouseListener(this);
 		addMouseMotionListener(this);
-		key = new keyInput(this);
-		addKeyListener(key);
-
 	}
 
 	/**
@@ -259,7 +259,18 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 
 					}
 				}
-				map[y][x].drawBuilding(g, pixelchunk);
+				
+				if(temppoint!=null)
+				{
+					if(temppoint.x==x&&temppoint.y==y)
+					{
+					temp.drawBuilding(g, pixelchunk);
+					}
+				}
+				else
+				{
+					map[y][x].drawBuilding(g, pixelchunk);
+				}
 				//System.out.println("cam view"+cam.view.x+"  "+cam.view.y);
 				//System.out.println(pixelchunk.x+ " "+pixelchunk.y);
 			}
@@ -301,14 +312,17 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-
+		if(action.equals("place residential"))
+		{
+			
+		}
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
 		point = e.getPoint();
 		clickedButton = e.getButton();
-		System.out.println(point);
+		//System.out.println(point);
 
 	}
 
@@ -336,27 +350,31 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 	public void mouseDragged(MouseEvent e) {
 		// TODO Auto-generated method stu
 		// System.out.print(MouseInfo.getNumberOfButtons());
-		System.out.println(e.getButton());
+		//System.out.println(e.getButton());
 		if (clickedButton == MouseEvent.BUTTON3) {
 			System.out.print(e.getX() + " " + e.getY());
 			if (e.getY() < point.y) {
 
 				cam.move(0, 10);
 				repaint();
+				point.y=e.getY();
 
 			} else if (e.getY() > point.y) {
 				cam.move(0, -10);
 				repaint();
+				point.y=e.getY();
 			}
 
 			if (e.getX() < point.x) {
 
 				cam.move(10, 0);
 				repaint();
+				point.x=e.getX();
 
 			} else if (e.getX() > point.x) {
 				cam.move(-10, 0);
 				repaint();
+				point.x=e.getX();
 			}
 
 		}
@@ -366,11 +384,13 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		curindexx = e.getX();
-		curindexy = e.getY();
-
+		if(action.equals("place residential"))
+		{
+			setTemp(new Residential());
+			setTemppoint(new Point(convertPixel(e.getX()),convertPixel(e.getY())));
+		}
 	}
-
+	
 	public int getOffsetx() {
 		return offsetx;
 	}
@@ -385,6 +405,22 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 
 	public void setScreenSize(Dimension screenSize) {
 		ScreenSize = screenSize;
+	}
+
+	public gameBuilding getTemp() {
+		return temp;
+	}
+
+	public void setTemp(gameBuilding temp) {
+		this.temp = temp;
+	}
+
+	public Point getTemppoint() {
+		return temppoint;
+	}
+
+	public void setTemppoint(Point temppoint) {
+		this.temppoint = temppoint;
 	}
 
 }

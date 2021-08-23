@@ -13,7 +13,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
-public class Gui implements ActionListener{
+public class Gui implements ActionListener,KeyListener{
 
 	public int width= 1080;
 	public int height= 720;
@@ -48,7 +48,8 @@ public class Gui implements ActionListener{
 		frame.setVisible(true);
 		constructionmenu = new constructionMenu();
 		constructionmenu.setVisible(false);
-		
+		frame.addKeyListener(this);
+		frame.requestFocusInWindow();
 		panel.paint(panel.getGraphics());
 	}
 	private void switchToConstructionMenu()
@@ -143,6 +144,58 @@ public class Gui implements ActionListener{
 		{
 			switchToConstructionMenu();
 		}
+	}
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		//System.out.println(e.getKeyChar());
+		char keypress = e.getKeyChar();
+		if(keypress=='w')
+		{
+			panel.cam.move(0, -10);
+			panel.repaint();
+		}
+		else if(keypress=='d')
+		{
+			panel.cam.move( 10,0);	
+			panel.repaint();
+		}
+		else if(keypress=='s')
+		{
+			panel.cam.move(0, 10);
+			panel.repaint();
+		}
+		else if(keypress=='a')
+		{
+			panel.cam.move( -10,0);	
+			panel.repaint();
+		}
+		else if( keypress == '1')
+		{
+			panel.action="place residential";
+		}
+		else if( keypress == '2')
+		{
+			panel.action="place Commercial";
+		}
+		else if( keypress == '3')
+		{
+			panel.action="place industrial";
+		}
+		else if( keypress == 'r')
+		{
+			panel.action="place road";
+		}
+	}
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
