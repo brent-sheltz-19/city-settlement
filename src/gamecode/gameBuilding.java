@@ -7,7 +7,7 @@ import java.awt.Rectangle;
 public abstract class gameBuilding 
 {
 	String ZoneType;
-	
+	int age;
 	
 	public abstract int calcTax();
 	public abstract void drawBuilding(Graphics g,Rectangle pixelchunk);

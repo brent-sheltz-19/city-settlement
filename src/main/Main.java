@@ -42,7 +42,7 @@ public class Main
 		Random rany = new Random();
 		Random ranBuild = new Random();
 		
-		for(int i = 0; i <100;i++)
+		for(int i = 0; i <1000;i++)
 		{
 			int x =ranx.nextInt(100);
 			int y =rany.nextInt(100);
@@ -70,7 +70,7 @@ public class Main
 			
 		}
 		gui = new Gui(map);
-		k=new keyInput(gui.panel);
+		//k=new keyInput(gui.panel);
 		gui.panel.setKey(k);			
 		//gui.paintComponents(gui.getGraphics());
 		for (gameBuilding[] y : map) {
@@ -89,6 +89,10 @@ public class Main
 			System.out.println();
 			
 		}
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
 	}
 	public void addToMap(String type,int x,int y)
 	{

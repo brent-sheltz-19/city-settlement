@@ -42,10 +42,11 @@ public class Gui implements ActionListener,KeyListener{
 		construction = new JButton("construction");
 		construction.setPreferredSize(new Dimension(width,100));
 		construction.addActionListener(this);
-		frame.add(construction,BorderLayout.SOUTH);
 		
+		frame.add(construction,BorderLayout.SOUTH);
 		frame.pack();
 		frame.setVisible(true);
+		
 		constructionmenu = new constructionMenu();
 		constructionmenu.setVisible(false);
 		frame.addKeyListener(this);

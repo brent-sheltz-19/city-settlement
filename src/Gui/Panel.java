@@ -32,7 +32,7 @@ import gamecode.gameBuilding;
 
 /**
  * @author brent sheltz
- *
+ * the game's panel that the game is drawn on
  */
 public class Panel extends JPanel implements MouseListener, MouseMotionListener {
 	public static Point point;
@@ -40,15 +40,21 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 	public Integer curindexx, curindexy = null;
 	public static int roadwidth = 5;
 	public static int roadheight = 5;
+	public static int zoom = 0;
+
 	public Camera cam;
 	public String action="";
 	public gameBuilding[][] map;
+	
+	
+	
 	private Dimension ScreenSize;
 	private int offsetx, offsety;
 	private Integer clickedButton;
 	private KeyListener key;
 	private gameBuilding temp;
 	private Point temppoint ;
+	
 	public static Point getPoint() {
 		return point;
 	}
@@ -157,7 +163,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 		offsety = cam.view.y;
 		addMouseListener(this);
 		addMouseMotionListener(this);
-		key = new keyInput(this);
+		//key = new keyInput(this);
 		addKeyListener(key);
 	}
 
@@ -174,7 +180,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 		offsety = cam.view.y;
 		addMouseListener(this);
 		addMouseMotionListener(this);
-		key = new keyInput(this);
+		//key = new keyInput(this);
 		addKeyListener(key);
 
 	}
@@ -193,7 +199,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 		offsety = cam.view.y;
 		addMouseListener(this);
 		addMouseMotionListener(this);
-		key = new keyInput(this);
+		//key = new keyInput(this);
 		addKeyListener(key);
 
 	}
@@ -295,7 +301,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 	 * converts the given index for the game map to pixel
 	 * 
 	 * @param index
-	 * @return
+	 * @return 
 	 */
 	public int convertIndex(int index) {
 
@@ -310,13 +316,38 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 	}
 
 	@Override
-	public void mouseClicked(MouseEvent e) {
+	public void mouseClicked(MouseEvent e) 
+	{
 		// TODO Auto-generated method stub
 		if(action.equals("place residential"))
 		{
 			
+			map[convertPixel(e.getY())][convertPixel(e.getX())]=new Residential();
+			repaint();
+//			System.out.println("");
+//
+//			System.out.println("");
+//			
+//			
+//			for (gameBuilding[] y : map) 
+//			{
+//				for (gameBuilding x : y)
+//				{
+//					if(x== null)
+//					{
+//						System.out.print("Empty"+", ");
+//							
+//					}
+//					else
+//					{
+//					System.out.print(x.getZoneType()+", ");
+//					}
+//				}
+//				System.out.println();
+//				
+//			}
 		}
-	}
+	}	
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -352,7 +383,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 		// System.out.print(MouseInfo.getNumberOfButtons());
 		//System.out.println(e.getButton());
 		if (clickedButton == MouseEvent.BUTTON3) {
-			System.out.print(e.getX() + " " + e.getY());
+			//System.out.print(e.getX() + " " + e.getY());
 			if (e.getY() < point.y) {
 
 				cam.move(0, 10);
@@ -384,11 +415,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if(action.equals("place residential"))
-		{
-			setTemp(new Residential());
-			setTemppoint(new Point(convertPixel(e.getX()),convertPixel(e.getY())));
-		}
+		
 	}
 	
 	public int getOffsetx() {

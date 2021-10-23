@@ -6,6 +6,9 @@ import java.awt.Rectangle;
 
 public class Road extends gameBuilding
 {
+	public static int roadwidth = 5;
+	public static int roadheight = 5;
+
 	public Road() {
 		// TODO Auto-generated constructor stub
 		super.setZoneType("Road");
@@ -21,6 +24,10 @@ public class Road extends gameBuilding
 	@Override
 	public void drawBuilding(Graphics g, Rectangle pixelchunk) {
 		// TODO Auto-generated method stub
+		
+		
+		
+		
 		return;
 	}
 
