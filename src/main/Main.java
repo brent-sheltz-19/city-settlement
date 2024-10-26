@@ -13,7 +13,7 @@ import Gui.*;
 import Gui.Panel;
 import gamecode.*;
 /**
- * @author brent sheltz
+ * @author Brent Sheltz
  *
  */
 public class Main 
